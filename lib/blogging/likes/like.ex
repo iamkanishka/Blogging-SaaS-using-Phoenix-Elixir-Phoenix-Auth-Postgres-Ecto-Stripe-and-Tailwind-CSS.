@@ -8,6 +8,8 @@ defmodule Blogging.Likes.Like do
   schema "likes" do
     belongs_to :user, User
     belongs_to :post, Post
+
+    timestamps()
   end
 
   @doc false

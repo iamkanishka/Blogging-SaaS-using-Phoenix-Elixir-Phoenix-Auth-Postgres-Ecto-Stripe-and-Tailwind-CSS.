@@ -5,6 +5,7 @@ defmodule Blogging.Repo.Migrations.CreateUserAndProfile do
     create table(:users) do
       add :email, :string
       add :hash_password, :string
+      timestamps()
     end
 
     create table(:profiles) do

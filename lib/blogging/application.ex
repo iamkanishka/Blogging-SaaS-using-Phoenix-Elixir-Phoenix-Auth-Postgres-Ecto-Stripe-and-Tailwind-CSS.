@@ -2,6 +2,11 @@ defmodule Blogging.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
+  alias Blogging.Posts.Posts
+  alias Blogging.Likes.Likes
+  alias Blogging.Profiles.Profiles
+  alias Blogging.Comments.Comments
+  alias Blogging.Users.Users
 
   use Application
 
@@ -32,5 +37,14 @@ defmodule Blogging.Application do
   def config_change(changed, _new, removed) do
     BloggingWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  def insert_tables_data() do
+    Users.insert_data()
+    Profiles.insert_data()
+    Posts.insert_data()
+    Comments.insert_data()
+    Likes.insert_data()
+
   end
 end
